@@ -1,5 +1,5 @@
-fecha,cliente,tipo_cliente,producto,categoria,cantidad,precio_unitario,municipio
-2026-09-17,Comercializadora El Valle,Mayorista,Queso Doble Crema 500g,Lácteos,15,12500,Ubaté
-2026-09-17,Lácteos La Villa,Minorista,Mantequilla Artesanal 250g,Lácteos,8,8000,Suta
-2026-09-18,AgroServicios del Norte,Minorista,Bulto Concentrado 50kg,Agro,5,95000,Ubaté
-2026-09-18,Distribuidora Ubateña,Mayorista,Queso Doble Crema 500g,Lácteos,30,12000,Ubaté
+ï»¿fecha,cliente,tipo_cliente,producto,categoria,cantidad,precio_unitario,municipio
+2026-09-17,Comercializadora El Valle,Mayorista,Queso Doble Crema 500g,Lacteos,15,12500,Ubate
+2026-09-17,Lacteos La Villa,Minorista,Mantequilla Artesanal 250g,Lacteos,8,8000,Suta
+2026-09-18,AgroServicios del Norte,Minorista,Bulto Concentrado 50kg,Agro,5,95000,Ubate
+2026-09-18,Distribuidora Ubatena,Mayorista,Queso Doble Crema 500g,Lacteos,30,12000,Ubate
