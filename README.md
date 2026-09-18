@@ -53,3 +53,21 @@ Solución integral de **Business Intelligence (BI)** y **Analítica de Datos** o
 ├── README.md              # Documentación principal del repositorio
 └── requirements.txt       # Dependencias y librerías de Python
 
+---
+
+## 🛠️ Requisitos Previos
+
+Asegúrate de contar con lo siguiente instalado en tu entorno local:
+
+- **Python:** 3.10 o superior
+- **PostgreSQL:** 14.0 o superior
+- **Git:** Para clonar y gestionar el repositorio
+
+---
+
+## ⚙️ Instalación y Configuración
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/YA2811/INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS.git](https://github.com/YA2811/INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS.git)
+   cd INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS
