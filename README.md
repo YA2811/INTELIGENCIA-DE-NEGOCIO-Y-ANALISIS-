@@ -63,37 +63,6 @@ Solución integral de **Business Intelligence (BI)** y **Analítica de Datos** o
 
 ---
 
-## 📋 Historias de Usuario
-
-El desarrollo técnico se estructuró a través de las siguientes **Historias de Usuario (HU)**:
-
-* **HU-01: Diseñar esquema estrella en PostgreSQL (`dim_tiempo`, `hechos_ventas`)**
-  * **Como:** Analista de Datos / Desarrollador del PGC
-  * **Quiero:** Diseñar e implementar el modelo en estrella en PostgreSQL.
-  * **Para:** Estructurar los datos de ventas e indicadores financieros de forma optimizada.
-* **HU-02: Desarrollar script ETL de extracción y transformación en Python (`src/etl_pipeline.py`)**
-  * **Como:** Desarrollador del PGC
-  * **Quiero:** Construir el pipeline de extracción y transformación en Python.
-  * **Para:** Procesar los archivos de origen y limpiar los datos de ventas antes de cargarlos.
-* **HU-03: Implementar carga de datos a PostgreSQL mediante SQLAlchemy**
-  * **Como:** Desarrollador del PGC
-  * **Quiero:** Configurar e implementar el motor de conexión SQLAlchemy.
-  * **Para:** Automatizar el proceso de persistencia de datos procesados dentro del Data Warehouse.
-* **HU-04: Ejecutar pruebas unitarias de calidad de datos con pytest**
-  * **Como:** Analista de Datos / QA
-  * **Quiero:** Desarrollar scripts de prueba automatizados con pytest.
-  * **Para:** Garantizar la integridad, consistencia y ausencia de nulos en las métricas clave.
-* **HU-05: Diseñar e implementar el dashboard interactivo en Streamlit**
-  * **Como:** Usuario Final / Analista Financiero
-  * **Quiero:** Un tablero interactivo desarrollado en Streamlit.
-  * **Para:** Visualizar gráficamente los datos de ventas y métricas de desempeño del negocio.
-* **HU-06: Validar cálculo de KPIs financieros (`monto_total_venta` y `margen_ganancia_bruta`)**
-  * **Como:** Responsable Financiero del PGC
-  * **Quiero:** Validar las fórmulas y cálculos de los indicadores KPI en el dashboard.
-  * **Para:** Asegurar la precisión de las decisiones estratégicas tomadas con la herramienta.
-
----
-
 ## 🛠️ Requisitos Previos
 
 Asegúrate de contar con lo siguiente instalado en tu entorno local:
@@ -197,5 +166,5 @@ El usuario final confirma que la aplicación en **Streamlit** cumple satisfactor
 
 ## 👤 Autor
 
-- **Desarrollador / Líder Técnico:** YA2811
+- **Desarrollador / Líder Técnico:** Yenifer Andrea Santana Farfan
 - **Proyecto de Grado / PGC:** Inteligencia de Negocio y Análisis de Ventas
