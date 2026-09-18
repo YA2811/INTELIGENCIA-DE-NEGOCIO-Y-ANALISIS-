@@ -15,11 +15,13 @@ Solución integral de **Business Intelligence (BI)** y **Analítica de Datos** o
 - [Características Principales](#-características-principales)
 - [Arquitectura de Datos](#-arquitectura-de-datos)
 - [Estructura del Repositorio](#-estructura-del-repositorio)
+- [Historias de Usuario](#-historias-de-usuario)
 - [Requisitos Previos](#-requisitos-previos)
 - [Instalación y Configuración](#-instalación-y-configuración)
 - [Ejecución del Proyecto](#-ejecución-del-proyecto)
 - [Pruebas Unitarias](#-pruebas-unitarias)
 - [Gestión del Proyecto (Metodología Ágil)](#-gestión-del-proyecto-metodología-ágil)
+- [Acta de Validación de Usuario Final](#-acta-de-validación-de-usuario-final)
 - [Autor](#-autor)
 
 ---
@@ -38,20 +40,57 @@ Solución integral de **Business Intelligence (BI)** y **Analítica de Datos** o
 
 ```text
 [ Datos de Origen ] ➔ [ Script ETL (Python) ] ➔ [ Base de Datos OLAP (PostgreSQL) ] ➔ [ Dashboard (Streamlit) ]
+```
 
 ---
 
+## 📂 Estructura del Repositorio
+
+```text
 ├── data/                  # Conjuntos de datos raw y procesados
+├── database/              # Scripts SQL de creación de tablas y consultas
 ├── docs/                  # Documentación del proyecto (Anexos, Acta de Validación)
 ├── src/
 │   ├── etl_pipeline.py    # Script de Extracción, Transformación y Carga
-│   ├── db_connection.py   # Configuración y motor SQLAlchemy
-│   └── app.py             # Aplicación interactiva de Streamlit
+│   └── db_connection.py   # Configuración y motor SQLAlchemy
 ├── tests/
 │   └── test_quality.py    # Pruebas unitarias de calidad con pytest
 ├── .gitignore             # Archivos excluidos de control de versiones
 ├── README.md              # Documentación principal del repositorio
+├── app.py                 # Aplicación interactiva de Streamlit
 └── requirements.txt       # Dependencias y librerías de Python
+```
+
+---
+
+## 📋 Historias de Usuario
+
+El desarrollo técnico se estructuró a través de las siguientes **Historias de Usuario (HU)**:
+
+* **HU-01: Diseñar esquema estrella en PostgreSQL (`dim_tiempo`, `hechos_ventas`)**
+  * **Como:** Analista de Datos / Desarrollador del PGC
+  * **Quiero:** Diseñar e implementar el modelo en estrella en PostgreSQL.
+  * **Para:** Estructurar los datos de ventas e indicadores financieros de forma optimizada.
+* **HU-02: Desarrollar script ETL de extracción y transformación en Python (`src/etl_pipeline.py`)**
+  * **Como:** Desarrollador del PGC
+  * **Quiero:** Construir el pipeline de extracción y transformación en Python.
+  * **Para:** Procesar los archivos de origen y limpiar los datos de ventas antes de cargarlos.
+* **HU-03: Implementar carga de datos a PostgreSQL mediante SQLAlchemy**
+  * **Como:** Desarrollador del PGC
+  * **Quiero:** Configurar e implementar el motor de conexión SQLAlchemy.
+  * **Para:** Automatizar el proceso de persistencia de datos procesados dentro del Data Warehouse.
+* **HU-04: Ejecutar pruebas unitarias de calidad de datos con pytest**
+  * **Como:** Analista de Datos / QA
+  * **Quiero:** Desarrollar scripts de prueba automatizados con pytest.
+  * **Para:** Garantizar la integridad, consistencia y ausencia de nulos en las métricas clave.
+* **HU-05: Diseñar e implementar el dashboard interactivo en Streamlit**
+  * **Como:** Usuario Final / Analista Financiero
+  * **Quiero:** Un tablero interactivo desarrollado en Streamlit.
+  * **Para:** Visualizar gráficamente los datos de ventas y métricas de desempeño del negocio.
+* **HU-06: Validar cálculo de KPIs financieros (`monto_total_venta` y `margen_ganancia_bruta`)**
+  * **Como:** Responsable Financiero del PGC
+  * **Quiero:** Validar las fórmulas y cálculos de los indicadores KPI en el dashboard.
+  * **Para:** Asegurar la precisión de las decisiones estratégicas tomadas con la herramienta.
 
 ---
 
@@ -69,5 +108,94 @@ Asegúrate de contar con lo siguiente instalado en tu entorno local:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/YA2811/INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS.git](https://github.com/YA2811/INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS.git)
+   git clone https://github.com/YA2811/INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS.git
    cd INTELIGENCIA-DE-NEGOCIO-Y-ANALISIS
+   ```
+
+2. **Crear y activar un entorno virtual:**
+   ```bash
+   # En Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   # En Linux/macOS
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Instalar dependencias:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configurar variables de entorno:**
+   Crea un archivo `.env` en la raíz del proyecto con las credenciales de PostgreSQL:
+   ```env
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_NAME=bd_lacteos_pgc
+   DB_USER=postgres
+   DB_PASSWORD=tu_contraseña
+   ```
+
+---
+
+## 🏃 Ejecución del Proyecto
+
+### 1. Ejecutar el Pipeline ETL
+Para procesar los datos de origen e insertarlos en la base de datos PostgreSQL:
+```bash
+python src/etl_pipeline.py
+```
+
+### 2. Iniciar el Dashboard en Streamlit
+Para desplegar la aplicación interactiva en tu navegador:
+```bash
+streamlit run app.py
+```
+
+---
+
+## 🧪 Pruebas Unitarias
+
+Para ejecutar las validaciones automatizadas de calidad de datos y verificar que los tests pasen con éxito:
+```bash
+pytest tests/
+```
+
+---
+
+## 📊 Gestión del Proyecto (Metodología Ágil)
+
+La planificación y ejecución del proyecto se gestionan mediante **GitHub Projects** aplicando la metodología Kanban/Scrum en **Sprints de 3 semanas (21 días)**.
+
+- **Tablero Kanban:** `PGC - Tablero de Gestión Ágil`
+- **Seguimiento de Tareas:** Organizado mediante *Issues* vinculados a Historias de Usuario (`HU-01` a `HU-06`).
+
+---
+
+## 📜 Acta de Validación de Usuario Final (Dashboard en Streamlit)
+
+**Fecha de realización:** 18 de septiembre de 2026  
+**Proyecto:** *Inteligencia de Negocio y Análisis de Ventas (PGC)*  
+**Evaluador / Usuario Final:** Responsable de Área Financiera y Comercial  
+**Desarrollador / Líder del Proyecto:** YA2811  
+
+### 1. Criterios y Resultados de Pruebas
+
+| Criterio de Aceptación | Descripción de la Prueba | Resultado | Observaciones |
+| :--- | :--- | :---: | :--- |
+| **Carga e Integración** | Conexión e inserción de datos procesados mediante la canalización ETL hacia PostgreSQL. | **Aprobado** | La base de datos responde de manera continua y consistente. |
+| **Integridad de Datos** | Ausencia de registros nulos y duplicados validados con `pytest`. | **Aprobado** | Cobertura del 100% en claves primarias y campos obligatorios. |
+| **Filtros Dinámicos** | Interacción con filtros por rango de fechas y categorías dentro de Streamlit. | **Aprobado** | Actualización de gráficos en tiempo real sin latencia perceptible. |
+| **Cálculo de KPIs** | Verificación de métricas financieras: `monto_total_venta` y `margen_ganancia_bruta`. | **Aprobado** | Conciliación exacta contra los datos maestros de origen. |
+
+### 2. Declaración de Conformidad
+El usuario final confirma que la aplicación en **Streamlit** cumple satisfactoriamente con la totalidad de los criterios de aceptación definidos en las Historias de Usuario `HU-05` e `HU-06`. La solución queda homologada y lista para su presentación final en el marco del Proyecto de Grado / PGC.
+
+---
+
+## 👤 Autor
+
+- **Desarrollador / Líder Técnico:** YA2811
+- **Proyecto de Grado / PGC:** Inteligencia de Negocio y Análisis de Ventas
